@@ -29,7 +29,7 @@ export default function Concepts() {
       <PageHeader
         eyebrow="概念篇"
         title="把 AI 黑话讲成人话"
-        desc="一个概念能不能算「听懂了」标准只有一个：你能说清楚它解决什么问题、边界在哪。下面 10 个概念按「从模型到应用到系统」顺序排列，每个都配上一个你可以复述给别人听的比喻。"
+        desc="一个概念能不能算「听懂了」标准只有一个：你能说清楚它解决什么问题、边界在哪。前面 10 个概念按「从模型到应用到系统」顺序排列，每个都配上一个可以复述给别人听的比喻；最后一节用一个真实案例把它们全部串起来。"
       />
 
       {/* Transformer */}
@@ -112,6 +112,32 @@ export default function Concepts() {
             （按概率抽签——62% 的可能选「好」，也可能选到「冷」）。采样时的「温度参数」控制随机度：温度越高越敢选冷门词，回答越有创造力也越容易跑偏；温度调到最低就退化成贪心。选中一个词拼回句尾，再重复整个过程预测下一个，直到模型吐出「结束符」——你看到的每一段回答，都是一个词一个词接力生成的。
           </p>
         </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">细讲温度（Temperature）：它控制的不是聪明，是「敢不敢选冷门词」</h3>
+          <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
+            先看它<span className="font-semibold text-zinc-800">在哪起作用</span>：模型每吐一个词之前，算出的都是上面那张「全词表概率分布」。温度不是重新计算概率，而是在抽签之前加在分布上的一个
+            <span className="font-semibold text-zinc-800">缩放旋钮</span>，只改变分布的形状——
+          </p>
+          <ul className="mt-3 space-y-2 text-[14px] leading-relaxed text-zinc-600">
+            <li>· <span className="font-semibold text-zinc-800">低温把分布「拉尖」</span>：原本就领先的词更一枝独秀，62% 可能被放大到 90%+；温度调到 0 时直接退化成贪心——永远选「好」。效果是：同样的问题永远得到几乎同样的回答，<span className="font-semibold text-zinc-800">稳定、可复现</span>。</li>
+            <li>· <span className="font-semibold text-zinc-800">高温把分布「拉平」</span>：热门词和冷门词的差距被抹小，62% 和 7% 可能变成 30% 和 20%——模型开始「敢赌」。效果是：回答更有惊喜和创造力，也更容易跑偏；拉到 1.5 以上，词与词之间的关联基本断裂，开始语无伦次。</li>
+          </ul>
+          <div className="mt-4">
+            <Table
+              head={["温度取值", "行为表现", "适合的场景"]}
+              rows={[
+                ["0（贪心）", "永远选概率最高的词，输出可复现", "对稳定性要求最高的环节：SQL / 代码生成、结构化输出、评测裁判打分"],
+                ["0.3 ~ 0.7", "小幅度随机，事实为主、表达略有变化", "事实型任务：客服问答、知识库问答、文档摘要"],
+                ["1.0 附近", "按模型原始分布采样", "通用对话默认值，聊天助手常用区间"],
+                ["1.2 以上", "明显发散，冷门表达频繁出现", "创意型任务：文案脑暴、起名字、角色扮演"],
+                ["1.5 以上", "开始胡言乱语，基本不可用", "几乎没有正经场景"],
+              ]}
+            />
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            PM 视角的两个推论：① 温度通常不给用户调，而是<span className="font-semibold text-zinc-800">由产品按场景写死在调用参数里</span>——同一个模型，「答疑模式」背后可能是 0.3，「写作模式」背后可能是 1.1，这就是产品化的温度预设；② 两个常见误解要避开：温度不控制「聪明程度」只控制「随机程度」，调再高模型也不会变聪明；低温也不等于更正确，只是更稳定——如果模型知识本身是错的，低温只会让它<span className="font-semibold text-zinc-800">错得更稳定</span>（所以治幻觉的主力是 RAG 供资料，降温只是辅助，见下一节）。
+          </p>
+        </div>
         <div className="mt-4">
           <Note>
             <p>
@@ -162,6 +188,41 @@ export default function Concepts() {
               },
             ]}
           />
+        </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">RAG 的输入与输出：到底是什么在流动？</h3>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold text-zinc-800">入库侧（离线）：原料是一切文字资料</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+                常见来源：企业 Wiki 与文档平台（学城 / 飞书文档 / Confluence）、PDF / Word / PPT、网页与帮助中心、FAQ 表格、客服工单记录、数据库导出的结构化数据。它们被清洗、切片、向量化后，在向量库里落成一条条
+                <span className="font-semibold text-zinc-800">「原文切片 + 向量 + 元数据（文档名、章节、更新时间、权限）」</span>。
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-zinc-800">在线侧：输入一个问题，输出「答案 + 出处」</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+                输入是用户的一句自然语言问题。它先被向量化，去向量库换回 top-k 条最相关的切片（连同元数据），切片被拼进 Prompt 的「参考资料」区域；最终输出是模型基于这些资料生成的
+                <span className="font-semibold text-zinc-800">一段自然语言答案 + 引用来源列表</span>（每条引用能跳回原文对应位置）。
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-2 rounded-lg bg-zinc-50 p-3 text-[12px] leading-relaxed text-zinc-600">
+            <span className="rounded bg-zinc-200 px-2 py-0.5 font-medium">文档 / Wiki / 工单</span>
+            <ArrowRight className="h-3 w-3 text-zinc-400" />
+            <span className="rounded bg-zinc-200 px-2 py-0.5 font-medium">清洗切片向量化</span>
+            <ArrowRight className="h-3 w-3 text-zinc-400" />
+            <span className="rounded bg-indigo-100 px-2 py-0.5 font-medium text-indigo-700">向量库</span>
+            <ArrowRight className="h-3 w-3 text-zinc-400" />
+            <span className="rounded bg-zinc-200 px-2 py-0.5 font-medium">用户问题 → 检索 top-k</span>
+            <ArrowRight className="h-3 w-3 text-zinc-400" />
+            <span className="rounded bg-zinc-200 px-2 py-0.5 font-medium">拼进 Prompt</span>
+            <ArrowRight className="h-3 w-3 text-zinc-400" />
+            <span className="rounded bg-indigo-500 px-2 py-0.5 font-medium text-white">答案 + 引用来源</span>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            核心认知：整条链路里模型本身什么都没「学」——<span className="font-semibold text-zinc-800">知识不在模型权重里，而在外挂的资料柜里流动</span>。这带来两个产品推论：① 更新知识 = 更新文档重新入库，不用动模型、不用重训，分钟级生效，这正是企业愿意用 RAG 而不是微调来灌知识的根本原因；② 答错了可以精确定位锅在哪个环节——先看「检索回来的那几段对不对」（召回问题），再看「模型有没有照着资料说」（生成问题），这就是方法篇排查框架的第一刀。
+          </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
@@ -563,6 +624,51 @@ export default function Concepts() {
         </div>
       </Section>
 
+      {/* 案例串联 */}
+      <Section kicker="11 · 串联" title="一个案例串起全部概念：豆包的一次回答是怎么发生的">
+        <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
+          概念散着学容易忘，串进一个真实产品就忘不掉。以字节的 AI 体系为例（组织架构为基于公开信息的简化示意）：先看清「谁负责什么」，再跟踪一次普通提问如何流过所有概念——每一步「在做什么、用什么概念、反映了什么取舍」，都是你可以复述给任何人听的完整画面。
+        </p>
+        <div className="mt-5">
+          <p className="mb-3 text-sm font-semibold text-zinc-800">先看组织地图：每个团队负责你学过的哪一层</p>
+          <Table
+            head={["团队 / 部门", "干什么", "对应你学过的概念"]}
+            rows={[
+              ["Seed（模型研发）", "训练豆包大模型：预训练、后训练、推理优化", "Transformer、LLM、SFT、推理成本——模型层"],
+              ["Flow（AI 产品）", "做豆包 App、猫箱等 C 端产品", "系统 Prompt、温度预设、Memory、交互设计——产品层（Harness 工程）"],
+              ["扣子 Coze", "零代码 Bot 搭建平台", "平台层：Workflow、插件、Function Calling 的可视化封装"],
+              ["火山引擎", "把模型能力打包成 API 卖给企业", "API 与 token 计费、无状态接口、toB 基础设施"],
+              ["抖音电商等业务方", "把 AI 用进审核、客服、商家工具与内容治理", "拒答边界、Prompt 注入防御、评测体系——场景与治理层"],
+            ]}
+          />
+        </div>
+        <div className="mt-6">
+          <p className="mb-3 text-sm font-semibold text-zinc-800">再跟踪一次提问的旅程：「我下周去上海出差，帮我看看天气并整理行程」</p>
+          <Table
+            head={["旅程的每一步", "用到的概念", "发生了什么", "反映了什么"]}
+            rows={[
+              ["你按下发送", "API、无状态、token 计费", "请求带着完整对话历史发到服务器——服务器并不「记得」你，每次都重新读一遍", "长对话越来越贵、越来越慢的根源"],
+              ["请求到达模型之前", "系统 Prompt", "你的问题前面垫着几千字隐形指令：你是豆包、什么该说什么不该说、用什么格式", "PM 不写代码也在「编程」——人设和红线都是 Prompt 写的"],
+              ["模型开始组织回答", "Transformer、温度", "逐词计算概率分布并按预设温度采样；答疑场景预设偏低，写作场景预设偏高", "模型是「发动机」，参数预设是产品决策"],
+              ["发现需要实时天气", "Function Calling", "模型不硬答天气，输出「调用天气接口、城市=上海」的 JSON，程序执行后把结果回传，模型再总结", "模型负责决策，程序负责执行——胡说实时信息的风险被架构消灭"],
+              ["整理行程时", "Memory", "系统记得你上次说过「靠窗座位、住快捷酒店」，行程自动贴合你的习惯", "记忆管「你这个人」，是留存与个性化的来源"],
+              ["你追问「推荐几家本帮菜」", "RAG / 联网检索", "检索最新网页切片拼进上下文，答案带着可点击的来源链接", "知识在外挂资料柜里流动，更新内容不用重训模型"],
+              ["你上传一张菜单照片", "VLM（多模态）", "视觉编码器读图，模型直接看懂菜单并翻译点评", "图和文字统一进同一套对话，不需要 OCR 硬转"],
+              ["你试着让它写抢票脚本薅羊毛", "拒答边界、安全治理", "触发风险线，用固定话术婉拒并给出合规替代建议", "拒答是设计出来的：给原因、给替代、红线不含糊"],
+              ["与此同时的后台", "LLM-as-a-Judge、AB 实验", "离线评测集每天跑分监控质量，新版本上线先小流量对比", "技术指标好 ≠ 产品好，一切改动用数据说话"],
+              ["你点了个赞", "数据飞轮、后训练", "点赞点踩回流成偏好数据，进入下一轮后训练", "产品越用越好的来源——这也是难迁移的壁垒"],
+            ]}
+          />
+        </div>
+        <div className="mt-4">
+          <Note>
+            <p>
+              这一节真正的用法是<span className="font-semibold">迁移</span>：挑任何一个你常用的 AI 产品（Kimi、DeepSeek、ChatGPT、元宝），把同样的「旅程」走一遍——每一步谁负责、用了什么概念、体现了什么取舍。走完一个产品，你对它的理解就超过了它的绝大多数用户；这也是实操篇「逆向 PRD」的升级版，更是「模型可替换、产品难迁移」这句话最具体的注解。
+            </p>
+          </Note>
+        </div>
+      </Section>
+
       {/* 概念自测 */}
       <Section kicker="自测" title="3 分钟自测：你能复述吗">
         <Table
@@ -585,6 +691,8 @@ export default function Concepts() {
             ["Prompt 注入为什么难防？", "指令和数据同一通道，模型分不清「命令」和「资料」；只能输入/指令/架构/输出四层纵深防御"],
             ["NLP 和 LLM 是什么关系？", "NLP 是问题域（学科），LLM 是解法范式（一个模型统一所有任务）；LLM 已成主流解法故常被混用"],
             ["Prompt 调优和微调怎么选？", "先 Prompt（改输入、零成本）；行为模式需稳定固化才微调（改权重）；知识更新归 RAG"],
+            ["温度参数控制的是什么？", "控制采样随机度而非聪明程度：低温拉尖分布（稳定可复现），高温拉平分布（敢选冷门词）；答得对的功能用低温，想点子的功能用高温"],
+            ["RAG 链路的输入和输出是什么？", "入库侧输入企业文档/Wiki/PDF/工单等一切文字资料；在线侧输入用户问题，输出「答案 + 引用来源」——知识在资料柜里流动，模型本身什么都没学"],
           ]}
         />
         <p className="mt-4 text-[14px] text-zinc-600">
