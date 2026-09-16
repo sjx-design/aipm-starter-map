@@ -243,6 +243,17 @@ export default function Methods() {
               折中方案也常用：给每张图生成一段 caption（图说）入库，检索命中 caption 后再把原图喂给 VLM 作答。判断值不值得上 VLM：看你库里图表密度——研报、PPT、专利图纸类值得，纯文字制度文档不值得。
             </p>
           </Card>
+          <Card title="怎么评价一个 AI 功能：四层指标" icon={ClipboardCheck}>
+            <ul className="mt-1 space-y-2">
+              <li>· <span className="font-semibold text-zinc-800">效果层</span>：答案对不对——准确率 / 召回率 / LLM-as-a-Judge 分（技术指标）</li>
+              <li>· <span className="font-semibold text-zinc-800">体验层</span>：用起来顺不顺——首字延迟、拒答率与误拒率、多轮成功率</li>
+              <li>· <span className="font-semibold text-zinc-800">成本层</span>：跑不跑得动生意——单次调用成本、token 消耗趋势</li>
+              <li>· <span className="font-semibold text-zinc-800">业务层</span>：用户买不买账——采纳率（输出被采用的比例）、留存、转化、人工接管率</li>
+            </ul>
+            <p className="mt-2">
+              关键认知：<span className="font-semibold text-zinc-800">技术指标好 ≠ 产品好</span>，四层要一起看——准确率高但延迟 10 秒的功能没人用。另外 badcase 不能靠用户投诉来发现：主动机制是定期抽检 + 日志聚类分析 + 用户反馈通道 + 指标跌破阈值自动告警。
+            </p>
+          </Card>
         </div>
         <div className="mt-4">
           <div className="rounded-xl border border-zinc-200 bg-white p-5">

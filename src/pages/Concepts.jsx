@@ -55,6 +55,15 @@ export default function Concepts() {
             </p>
           </TermCard>
         </div>
+        <div className="mt-4 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <p className="text-sm font-semibold text-zinc-800">辨析：NLP 和 LLM 是一回事吗？</p>
+          <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+            不是。<span className="font-semibold text-zinc-800">NLP（自然语言处理）是一个学科领域</span>——「让机器处理人类语言」这件事的统称，有几十年历史，包含分词、翻译、情感分析、信息抽取等无数具体任务；传统做法是每个任务单独设计、单独训练一个专门模型。<span className="font-semibold text-zinc-800">LLM 是这个领域里的一种新技术范式</span>：一个超大规模模型 + 一句 Prompt 统一所有任务，不再需要为每个任务造专门模型。
+          </p>
+          <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+            一句话关系：<span className="font-semibold text-zinc-800">NLP 是「问题域」，LLM 是「解法」</span>——就像「出行」是问题域，「汽车」是一种解法（还有高铁和飞机）。所以「做 NLP」可以指研究任何语言任务，「做 LLM」特指大模型这条路线；今天两个词常被混用，只是因为 LLM 已经成了 NLP 的主流解法。看 JD 时注意：写着「NLP 算法」的偏研究岗，写着「LLM 应用」的偏落地岗。
+          </p>
+        </div>
         <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
           <p className="text-sm font-semibold text-zinc-800">
             图解：一句话是怎么被处理的，下一个词是怎么「选」出来的
@@ -457,6 +466,17 @@ export default function Concepts() {
               <p className="mt-1">知识性的问题 → RAG（知识天天变，微调追不上）；行为格式的问题 → SFT（要 1000+ 条稳定风格时用）；先试 Prompt，Prompt 写不出的稳定行为再上微调。微调「记住」的内容会过时且难删除——这是它和 RAG 最本质的分工。</p>
             </div>
           </TermCard>
+          <TermCard term="Prompt 调优 vs 微调" en="改输入 vs 改权重" tag="最经典的一对辨析">
+            <p>
+              比喻：带一个聪明但不懂业务的新人。<span className="font-semibold text-zinc-800">Prompt 调优</span>是每次派活时递给他一份详细的操作手册——写清角色、步骤、要求和示例，他照着手册干活；<span className="font-semibold text-zinc-800">微调</span>是送他去做三个月上岗培训，把手册内容变成他自己的肌肉记忆，之后不必再递手册。
+            </p>
+            <div className="mt-3 rounded-lg bg-zinc-50 p-3 text-[12px] leading-relaxed text-zinc-600">
+              <p>· 改什么：Prompt 改的是「输入」，模型本身一动不动；微调改的是「模型权重」，是真的在训练</p>
+              <p>· 成本：Prompt 分钟级、零成本、随时推翻重来；微调要备数据、算力和评测，以天/周计</p>
+              <p>· 顺序：永远先 Prompt；只有「行为模式要稳定固化、Prompt 写到极限也不稳」时才微调</p>
+              <p>· 风险：微调「记住」的东西难删除、会过时——知识更新永远归 RAG，别拿微调当数据库</p>
+            </div>
+          </TermCard>
         </div>
       </Section>
 
@@ -563,6 +583,8 @@ export default function Concepts() {
             ["分布式对 AI 意味着什么？", "算力与并发远超单机，服务的高可用与成本都建立在分布式之上"],
             ["解决幻觉有哪四招？", "RAG 供资料、Prompt 立规矩、SFT 固行为、降温减随机——组合拳 + 溯源兜底，无法根除"],
             ["Prompt 注入为什么难防？", "指令和数据同一通道，模型分不清「命令」和「资料」；只能输入/指令/架构/输出四层纵深防御"],
+            ["NLP 和 LLM 是什么关系？", "NLP 是问题域（学科），LLM 是解法范式（一个模型统一所有任务）；LLM 已成主流解法故常被混用"],
+            ["Prompt 调优和微调怎么选？", "先 Prompt（改输入、零成本）；行为模式需稳定固化才微调（改权重）；知识更新归 RAG"],
           ]}
         />
         <p className="mt-4 text-[14px] text-zinc-600">
