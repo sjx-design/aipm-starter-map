@@ -15,7 +15,7 @@ export default function Practice() {
       <PageHeader
         eyebrow="实操室"
         title="从 0 到 1：搭一个会自己干活的自动化场景"
-        desc="这一页不讲概念，直接带你走完一个完整 MVP：「知识库每日自动质检机器人」——每天定时跑评测题、自动评分、自动出日报、跌破阈值自动告警。它用到的每一个零件，概念篇和方法篇都讲过；搭完它，你就拥有了一个可以写进简历、可以在面试里完整讲 5 分钟的作品。"
+        desc="这一页不讲概念，直接带你走完一个完整 MVP：「知识库每日自动质检机器人」——每天定时跑评测题、自动评分、自动出日报、跌破阈值自动告警。它用到的每一个零件，概念篇和方法篇都讲过；搭完它，你就拥有了一个可以对外完整讲 5 分钟的作品。"
       />
 
       {/* 场景定义 */}
@@ -120,7 +120,7 @@ export default function Practice() {
             },
             {
               title: "跑一周，写复盘",
-              desc: "连续跑 7 天，记录：有没有误告警？哪类题波动最大？这份「7 天质检记录 + 复盘结论」就是面试时最硬的作品集材料。",
+              desc: "连续跑 7 天，记录：有没有误告警？哪类题波动最大？这份「7 天质检记录 + 复盘结论」就是最硬的作品集材料。",
             },
           ]}
         />
@@ -134,10 +134,10 @@ export default function Practice() {
               <li>· <span className="font-semibold text-zinc-800">质量门禁</span>：准确率跌破阈值 = 不允许这次知识库变更上线</li>
               <li>· <span className="font-semibold text-zinc-800">回归测试</span>：固定考卷反复考，防「改好 A 弄坏 B」</li>
               <li>· <span className="font-semibold text-zinc-800">可观测性</span>：日报和趋势让质量从「感觉」变成「曲线」</li>
-              <li>· <span className="font-semibold text-zinc-800">评测准入</span>：字节等大厂治理策略团队的日常基建，你面试的岗位就在做这件事</li>
+              <li>· <span className="font-semibold text-zinc-800">评测准入</span>：大厂治理策略团队的日常基建，真实岗位就在做这件事</li>
             </ul>
           </Card>
-          <Card title="面试 60 秒讲法" icon={FileBarChart}>
+          <Card title="60 秒讲法" icon={FileBarChart}>
             <p>
               「我给自建的知识库问答应用搭了一套每日自动质检：30 道带评分要点的评测题定时批量提问，LLM 裁判按事实/边界分型打分，生成日报并在准确率跌破阈值时告警。过程中我量化了切片大小对召回的影响，也踩过裁判位置偏置的坑并用交换盲测修掉。它本质是企业里评测准入门禁的最小实现——我知道完整版还要补全量回归、多人标注校准和变更拦截。」
             </p>

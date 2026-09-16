@@ -20,7 +20,7 @@ export default function Industry() {
       <PageHeader
         eyebrow="行业篇"
         title="产业坐标系"
-        desc="聊行业是 AIPM 面试的必考题。你不需要知道所有细节，但要有自己的坐标系：模型公司格局怎么看、AI 产品经历了几波形态、各家实践到了什么水平、前沿正在啃哪些硬骨头。"
+        desc="理解一个行业最好的方式，是建立自己的坐标系：模型公司格局怎么看、AI 产品经历了几波形态、平时听到的那些名字到底谁是谁、各家实践到了什么水平、前沿正在啃哪些硬骨头。"
       />
 
       {/* 模型公司 */}
@@ -122,16 +122,43 @@ export default function Industry() {
         <div className="mt-4">
           <Note>
             <p>
-              一个锻炼行业感的方法：每周精读一款 AI 产品的更新日志（「产品更新日志」），连续一个月，你对「行业往哪走」的体感会超过大多数候选人。
+              一个锻炼行业感的方法：每周精读一款 AI 产品的更新日志，连续一个月，你对「行业往哪走」的体感会超过大多数从业者。
+            </p>
+          </Note>
+        </div>
+      </Section>
+
+      {/* 名词谱系 */}
+      <Section kicker="04 · 谱系" title="这些名字到底谁是谁：模型、工具与产品">
+        <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
+          Claude Code、Codex、Cursor、GPT、GLM、MiniMax、Seedance……这些名字经常被放在同一句话里出现，但它们根本<span className="font-semibold text-zinc-800">不在同一层</span>：有的是模型（发动机），有的是工具（车壳），有的根本不做文字。混为一谈是新手最容易露怯的地方，分清层次只要一张表。
+        </p>
+        <div className="mt-5">
+          <Table
+            head={["名字", "它是什么", "实际怎么用"]}
+            rows={[
+              ["GPT / GLM / MiniMax", "大语言模型本身（发动机）：OpenAI / 智谱 / MiniMax 各家造的模型", "看不见摸不着，通过 API 或自家助手（ChatGPT、智谱清言、海螺）调用；也藏在无数第三方产品后面"],
+              ["Claude", "Anthropic 的模型——注意它一名两用：既指模型，也指 claude.ai 这个对话助手产品", "日常问答写作用 claude.ai；开发者通过 API 调模型"],
+              ["Cursor", "AI 原生 IDE（图形界面编辑器 + 模型）", "写代码时实时补全、对话式改需求；模型可在设置里自选 GPT / Claude / GLM 等——工具壳和发动机是分开的"],
+              ["Claude Code", "终端里的编程 Agent（CLI + 模型）", "没有图形界面，在命令行里丢给它一个任务，它自己读写文件、跑命令、多步完成；适合长任务和自动化"],
+              ["Codex", "OpenAI 的编程 Agent，与 Claude Code 同类（CLI + 云端沙箱），背后是 GPT 系模型", "用法类似，生态与 Claude Code 直接竞争"],
+              ["Seedance", "字节跳动的视频生成模型", "生成短视频片段，和上面的语言模型完全不同模态——提醒你「模型」不等于「会聊天」"],
+            ]}
+          />
+        </div>
+        <div className="mt-4">
+          <Note>
+            <p>
+              「IDE + LLM」的理解对了一半：Cursor、Windsurf 确实是 IDE + LLM；但 Claude Code、Codex 是 CLI + LLM（命令行，更极客、更适合自动化流水线）；而 GPT、GLM、MiniMax 是 LLM 本身，不是任何工具。关键认知是<span className="font-semibold text-zinc-800">工具与模型解耦</span>：Cursor 里可以把模型从 GPT 换成 Claude 再换成 GLM，就像同一台车换发动机。所以比较永远要在同层进行——比模型看基准成绩，比工具看 Harness 工程质量（概念篇）。
             </p>
           </Note>
         </div>
       </Section>
 
       {/* 企业实践 */}
-      <Section kicker="04 · 实践" title="各家企业的真实实践与水平坐标">
+      <Section kicker="05 · 实践" title="各家企业的真实实践与水平坐标">
         <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
-          面试聊「你了解哪些公司」时，报菜名是下策，说出<span className="font-semibold text-zinc-800">每家在干什么、处于什么水平</span>才是上策。判断一家企业 AI 水平看三件事：旗舰模型在真实任务基准（不是聊天榜单）上的位置、有没有自己定义的行业标准、Agent 是否进入了真实生产流程。
+          聊「你了解哪些公司」时，报菜名是下策，说出<span className="font-semibold text-zinc-800">每家在干什么、处于什么水平</span>才是上策。判断一家企业 AI 水平看三件事：旗舰模型在真实任务基准（不是聊天榜单）上的位置、有没有自己定义的行业标准、Agent 是否进入了真实生产流程。
         </p>
         <div className="mt-5">
           <Table
@@ -157,7 +184,7 @@ export default function Industry() {
       </Section>
 
       {/* 前沿难题 */}
-      <Section kicker="05 · 前沿" title="前沿正在攻克的难题（面试高级感来源）">
+      <Section kicker="06 · 前沿" title="前沿正在攻克的难题">
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="长程 Agent 的可靠性" icon={Rocket}>
             <p>
@@ -197,14 +224,14 @@ export default function Industry() {
         <div className="mt-4">
           <Note>
             <p>
-              面试被问「你怎么看 Agent 落地前景」时，用两个数字校准乐观：真实电脑多步任务最强模型约 59%，专家级垂直任务约 49%（人类专家 95%）。既看得到方向，又说得出差距——这比空谈「未来已来」高级得多。
+              被问「你怎么看 Agent 落地前景」时，用两个数字校准乐观：真实电脑多步任务最强模型约 59%，专家级垂直任务约 49%（人类专家 95%）。既看得到方向，又说得出差距——这比空谈「未来已来」高级得多。
             </p>
           </Note>
         </div>
       </Section>
 
       {/* 怎么追 */}
-      <Section kicker="06 · 习惯" title="保持行业敏感的日常习惯">
+      <Section kicker="07 · 习惯" title="保持行业敏感的日常习惯">
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="信息源" icon={Map}>
             <ul className="mt-1 space-y-2">

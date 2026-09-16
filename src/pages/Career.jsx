@@ -22,9 +22,9 @@ export default function Career() {
   return (
     <Layout>
       <PageHeader
-        eyebrow="求职篇"
-        title="面向秋招的求职指南"
-        desc="从 JD 反推能力清单，从能力清单反推作品集。这一篇回答三个问题：市场到底要什么、你拿什么去对、以及「懂研发的产品 / 懂产品的研发」这条复合路线怎么走。"
+        eyebrow="职业篇"
+        title="把 AIPM 当成一份职业来了解"
+        desc="不管你是考虑入行、转行、跳槽，还是只想搞清楚这个岗位到底在干什么：从 JD 反推能力清单，从能力清单反推作品集。这一篇回答三个问题：市场到底要什么、你拿什么去对、以及「懂研发的产品 / 懂产品的研发」这条复合路线怎么走。"
       />
 
       {/* JD 拆解 */}
@@ -36,7 +36,7 @@ export default function Career() {
           <Table
             head={["JD 高频表述", "翻译成能力", "怎么证明"]}
             rows={[
-              ["熟悉大模型技术原理与边界", "能听懂研发黑话，判断方案可行性", "概念篇全部复述过关 + 面试现场接住追问"],
+              ["熟悉大模型技术原理与边界", "能听懂研发黑话，判断方案可行性", "概念篇全部复述过关 + 能接住追问"],
               ["有 RAG / Agent 落地经验", "亲手搭过、踩过坑、量化过改进", "作品集里的知识库 / Agent 项目 + 评测报告"],
               ["熟练 Prompt 工程", "能设计稳定可迭代的系统 Prompt", "带版本管理和测试集的 Prompt 迭代记录"],
               ["建立评测体系与数据驱动", "会用指标定义好坏、驱动迭代", "项目里的 LLM-as-a-Judge 流水线 + 前后对比数据"],
@@ -81,11 +81,11 @@ export default function Career() {
       </Section>
 
       {/* 作品集 */}
-      <Section kicker="03 · 弹药" title="「完美的 AI 产出」：能去秋招乱杀的作品集长什么样">
+      <Section kicker="03 · 弹药" title="「完美的 AI 产出」：有说服力的作品集长什么样">
         <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
-          一个残酷的事实：会调用模型 API 的 demo 没有稀缺性。能让面试官记住的项目，必须展示
+          一个残酷的事实：会调用模型 API 的 demo 没有稀缺性。能让人记住的项目，必须展示
           <span className="font-semibold text-zinc-800">「评测思维」和「迭代证据」</span>
-          ——这恰恰是大多数候选人缺失的。
+          ——这恰恰是大多数人缺失的。
         </p>
         <div className="mt-5">
           <Steps
@@ -108,7 +108,7 @@ export default function Career() {
               },
               {
                 title: "包装成 3 分钟可讲的故事",
-                desc: "面试叙事线：我发现 X 场景有 Y 问题 → 我判断 AI 能解决其中 Z 部分 → 我做了这些取舍 → 数据证明有改进 → 局限与下一步。边界感（哪些没解决）是加分项不是减分项。",
+                desc: "叙事线：我发现 X 场景有 Y 问题 → 我判断 AI 能解决其中 Z 部分 → 我做了这些取舍 → 数据证明有改进 → 局限与下一步。边界感（哪些没解决）是加分项不是减分项。",
               },
             ]}
           />
@@ -116,17 +116,16 @@ export default function Career() {
         <div className="mt-4">
           <Note>
             <p>
-              面试防雷清单：不要说「我精通大模型」；被问到不会的概念时坦诚说「这块我了解到 X 程度，更深的还没摸过」；所有项目数字都能追溯到你怎么算出来的。诚实 + 有边界的表达，在 AI 岗位面试里是稀缺品质。
+              表达防雷清单：不要说「我精通大模型」；聊到不会的概念时坦诚说「这块我了解到 X 程度，更深的还没摸过」；所有项目数字都能追溯到你怎么算出来的。诚实 + 有边界的表达，在这个行业里是稀缺品质。
             </p>
           </Note>
         </div>
       </Section>
 
-      {/* 面试题 */}
       {/* 歧义题拆解 */}
-      <Section kicker="04 · 拆解" title="「你怎么评价各家 AI」——一道故意模糊的题">
+      <Section kicker="04 · 拆解" title="「你怎么评价各家 AI」——一个故意模糊的问题">
         <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
-          面试官问「你怎么评价这几家 AI」时很少说明指的是产品还是模型——<span className="font-semibold text-zinc-800">歧义本身就是考点</span>：看你能不能把模糊问题结构化。急着选边报参数是下策，高分开口是：「这个问题我习惯分两层看，模型层和产品层的评价标准完全不同。」
+          「你怎么评价这几家 AI」是这个行业最常被聊起的问题之一，但问的人很少说明指的是产品还是模型——<span className="font-semibold text-zinc-800">歧义本身就是考点</span>：看你能不能把模糊问题结构化。急着选边报参数是下策，成熟的开口是：「这个问题我习惯分两层看，模型层和产品层的评价标准完全不同。」
         </p>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <Card title="模型层：评价「发动机参数」" icon={Building2}>
@@ -156,10 +155,13 @@ export default function Career() {
       </Section>
 
       {/* 实战 */}
-      <Section kicker="05 · 实战" title="高频面试题自测">
-        <div className="mt-2">
+      <Section kicker="05 · 自测" title="开放问题自测">
+        <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
+          无论是求职、转岗答辩还是日常同行交流，这些问题都会反复出现。能把每道都讲清楚，说明前面几篇的内容真正消化了：
+        </p>
+        <div className="mt-5">
           <Table
-            head={["问题", "考察点", "答题骨架"]}
+            head={["问题", "考察点", "思考骨架"]}
             rows={[
               ["怎么判断一个场景该不该上 AI？", "边界意识", "高频/容错/范式三因子 + 两个正反例"],
               ["你怎么评价各家 AI？", "结构化模糊问题", "先拆模型层/产品层两套标准，再落到「模型可替换、产品难迁移」"],

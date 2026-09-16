@@ -42,7 +42,7 @@ export default function Methods() {
           </Card>
           <Card title="AIPM 为什么必须亲手练" icon={PenLine}>
             <p>
-              你将来要为整个产品定义系统 Prompt：客服机器人的语气与红线、写作助手的风格边界、Agent 的判断规则。写不好 Prompt 的 PM，没法和算法讨论"这是模型问题还是指令问题"——这是面试里最常见的现场测试。
+              你将来要为整个产品定义系统 Prompt：客服机器人的语气与红线、写作助手的风格边界、Agent 的判断规则。写不好 Prompt 的 PM，没法和算法讨论"这是模型问题还是指令问题"——这是 PM 和算法协作时最常见的现场分歧。
             </p>
           </Card>
         </div>
@@ -65,7 +65,7 @@ export default function Methods() {
         <div className="mt-4">
           <Note>
             <p>
-              迭代心法：Prompt 是试验品不是作品。固定测试集 → 改一版 → 跑一遍 → 记录结果。没有测试集的 Prompt 优化都是在凭感觉，这句话本身就是面试加分项。
+              迭代心法：Prompt 是试验品不是作品。固定测试集 → 改一版 → 跑一遍 → 记录结果。没有测试集的 Prompt 优化都是在凭感觉——这句话值得贴在显示器上。
             </p>
           </Note>
         </div>
@@ -147,7 +147,7 @@ export default function Methods() {
               },
               {
                 title: "评测与迭代",
-                desc: "建 50 条问答测试集，用 LLM-as-a-Judge 按准确性/溯源正确性打分，记录每轮改动前后对比。这份对比报告就是面试时最硬的证据。",
+                desc: "建 50 条问答测试集，用 LLM-as-a-Judge 按准确性/溯源正确性打分，记录每轮改动前后对比。这份对比报告就是动手能力最硬的证据。",
               },
             ]}
           />
@@ -176,7 +176,7 @@ export default function Methods() {
         <div className="mt-4">
           <Note>
             <p>
-              面试常见追问：你的 AI 功能怎么定价/怎么控成本？答题框架：单位经济模型（单次调用成本 × 用量）→ 分层服务（简单请求路由到小模型）→ 缓存复用 → 用评测证明降配不降体验。
+              常见追问：你的 AI 功能怎么定价/怎么控成本？思考框架：单位经济模型（单次调用成本 × 用量）→ 分层服务（简单请求路由到小模型）→ 缓存复用 → 用评测证明降配不降体验。
             </p>
           </Note>
         </div>
@@ -185,7 +185,7 @@ export default function Methods() {
       {/* 工具全景 */}
       <Section kicker="05 · 工具箱" title="主流工具生态速览">
         <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
-          不必样样精通，但要能说出每类工具的代表选手和你用过哪几个。面试聊工具时，重点讲你用它做了什么、遇到什么坑，而不是背名单。
+          不必样样精通，但要能说出每类工具的代表选手和你用过哪几个。聊工具时，重点讲你用它做了什么、遇到什么坑，而不是背名单。
         </p>
         <div className="mt-5">
           <Table
@@ -288,7 +288,7 @@ export default function Methods() {
               <span className="font-semibold text-zinc-800">路径开放+可试错 → Agent</span>（「帮我调研这个竞对」）。拿不准就混合：主干 Workflow 保证可控兜底，叶子节点放 Agent 处理开放子任务。
             </p>
             <p className="mt-2">
-              评估口径也不同：Workflow 看完成率与每步耗时（确定性系统）；Agent 看任务成功率曲线、平均步数、人工接管率（概率性系统）。面试被问「这个场景用 Agent 还是 Workflow」，先把这两个问题抛回去，就是专业答案。
+              评估口径也不同：Workflow 看完成率与每步耗时（确定性系统）；Agent 看任务成功率曲线、平均步数、人工接管率（概率性系统）。被问「这个场景用 Agent 还是 Workflow」，先把这两个问题抛回去，就是专业答案。
             </p>
           </Card>
           <Card title="Skill / 工作流的触发条件：description 就是触发器" icon={PenLine}>

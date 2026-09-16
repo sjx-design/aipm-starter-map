@@ -15,7 +15,7 @@ export const NAV = [
   { to: "/concepts", label: "概念篇", icon: BookOpenText },
   { to: "/methods", label: "方法篇", icon: Wrench },
   { to: "/industry", label: "行业篇", icon: TrendingUp },
-  { to: "/career", label: "求职篇", icon: BriefcaseBusiness },
+  { to: "/career", label: "职业篇", icon: BriefcaseBusiness },
   { to: "/roadmap", label: "学习路径", icon: Route },
   { to: "/resources", label: "资源导航", icon: LibraryBig },
   { to: "/practice", label: "实操室", icon: FlaskConical },

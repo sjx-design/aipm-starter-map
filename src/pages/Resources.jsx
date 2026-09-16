@@ -46,7 +46,7 @@ const CATEGORIES = [
   },
   {
     title: "原理与工程认知：听懂研发的黑话",
-    note: "不求全部读完。按需查阅：面试前重点翻综述的目录和 llm-action 的架构章节。",
+    note: "不求全部读完。按需查阅：先翻综述的目录和 llm-action 的架构章节。",
     repos: [
       {
         name: "RUCAIBox/LLMSurvey",
@@ -135,7 +135,7 @@ const CATEGORIES = [
         url: "https://github.com/peterfei/ai-agent-team",
         stars: "434",
         desc: "一键搭建 24/7 AI 开发团队：产品经理、前端、后端、测试、DevOps 角色分工协作。",
-        why: "体验「AI 组织」的最佳玩具，也是面试聊多 Agent 协作的现成案例。",
+        why: "体验「AI 组织」的最佳玩具，也是理解多 Agent 协作的现成案例。",
       },
       {
         name: "karozi/Awesome-Vibecoding-and-Speccoding-Resources",
@@ -257,7 +257,7 @@ export default function Resources() {
             ["Stage 2 · 核心技能上手", "llm-cookbook 的 Prompt/RAG 子课 + self-llm（想动手微调时）"],
             ["Stage 3 · Agent 与自动化", "hugging-multi-agent + Dify 官方文档 + ai-agent-team 案例拆解"],
             ["Stage 4 · AI Coding 深度实践", "Awesome-Vibecoding 资源 + openai-cookbook 查工程细节"],
-            ["Stage 5 · 求职冲刺", "awesome-ai-product-manager / Awesome-PM-Prompts 补面试弹药"],
+            ["Stage 5 · 走向职业", "awesome-ai-product-manager / Awesome-PM-Prompts 补职业认知"],
           ]}
         />
         <div className="mt-4">

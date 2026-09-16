@@ -38,9 +38,9 @@ const MODULES = [
   {
     to: "/career",
     icon: BriefcaseBusiness,
-    title: "求职篇",
-    desc: "两类 AIPM 岗位画像、JD 高频要求拆解、懂研发的产品与懂产品的研发、秋招作品集打法。",
-    tag: "面向秋招",
+    title: "职业篇",
+    desc: "两类 AIPM 岗位画像、JD 高频要求拆解、复合成长路线，以及有说服力的作品集怎么炼成。",
+    tag: "职业指南",
   },
   {
     to: "/roadmap",
@@ -201,7 +201,7 @@ export default function Index() {
             <span className="font-semibold text-zinc-800">
               "场景落地 Agent PM + 基础模型常识"
             </span>
-            设计：既让你能接住落地岗的全部 JD 要求，也让你在面试里聊模型趋势时不说外行话。
+            设计：既让你能接住落地岗的全部 JD 要求，也让你聊模型趋势时不说外行话。
           </p>
         </div>
       </section>

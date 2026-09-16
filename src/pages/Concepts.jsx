@@ -132,7 +132,7 @@ export default function Concepts() {
           </TermCard>
         </div>
         <div className="mt-6">
-          <p className="mb-3 text-sm font-semibold text-zinc-800">RAG 的完整结构（面试高频题，按顺序背下来）</p>
+          <p className="mb-3 text-sm font-semibold text-zinc-800">RAG 的完整结构（能按顺序把这条链路讲出来，才算真懂）</p>
           <Steps
             items={[
               {
@@ -187,7 +187,7 @@ export default function Concepts() {
           </Note>
         </div>
         <div className="mt-6">
-          <p className="mb-3 text-sm font-semibold text-zinc-800">幻觉的四种缓解方案（面试题「怎么解决幻觉」的满分框架）</p>
+          <p className="mb-3 text-sm font-semibold text-zinc-800">幻觉的四种缓解方案（「怎么解决幻觉」的完整思考框架）</p>
           <Table
             head={["方案", "一句话原理", "适合什么", "局限"]}
             rows={[
@@ -198,7 +198,7 @@ export default function Concepts() {
             ]}
           />
           <p className="mt-3 text-[14px] text-zinc-600">
-            实战是组合拳：RAG 供资料 + Prompt 立规矩 + 必要时 SFT 固行为，再配上引用溯源让用户能核查——「无法根除，只能缓解 + 兜底」这句话本身就是面试加分点。
+            实战是组合拳：RAG 供资料 + Prompt 立规矩 + 必要时 SFT 固行为，再配上引用溯源让用户能核查。记住「无法根除，只能缓解 + 兜底」，你就比只喊「微调解决一切」的人懂行。
           </p>
         </div>
       </Section>
@@ -273,7 +273,7 @@ export default function Concepts() {
         <div className="mt-4">
           <Note>
             <p>
-              面试用法：被问「怎么做 AI 内容安全/治理」时，用「直接/间接注入分类 + 四层纵深防御 + 没有银弹」作答，比背定义高一个段位。它和拒答边界（方法篇）是一对：拒答管「模型不该说什么」，注入防御管「模型不该听什么」。
+              聊起「怎么做 AI 内容安全/治理」时，用「直接/间接注入分类 + 四层纵深防御 + 没有银弹」这套结构，比背定义高一个段位。它和拒答边界（方法篇）是一对：拒答管「模型不该说什么」，注入防御管「模型不该听什么」。
             </p>
           </Note>
         </div>
@@ -351,7 +351,7 @@ export default function Concepts() {
               <p className="mt-1">同一对答案交换前后位置让裁判选 10 次：不偏心的裁判应各选约 5 次；若「排在前面的」赢 8 次以上，说明裁判有位置偏好，评测结果不可信，需打乱顺序重测。</p>
             </div>
             <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
-              对策：盲测打乱顺序、按维度拆分打分、定期抽一部分人工复核校准。面试提一句「裁判本身也要被评测」，是加分细节。
+              对策：盲测打乱顺序、按维度拆分打分、定期抽一部分人工复核校准。再进一步的理解是：裁判本身也要被评测。
             </p>
           </TermCard>
           <TermCard term="Harness" en="评测跑分器 / 评测脚手架" tag="让分数可比、可复现的框架">
@@ -428,7 +428,7 @@ export default function Concepts() {
               <span className="font-semibold">
                 高频 × 容错 × 有海量范式可学
               </span>
-              的场景适合 AI 先落地；低频 × 零容错 × 需要担责的场景，AI 只能做辅助。面试聊「你会怎么选场景」，这套判断框架就是你的答案骨架。
+              的场景适合 AI 先落地；低频 × 零容错 × 需要担责的场景，AI 只能做辅助。聊「你会怎么选场景」，这套判断框架就是你的思考骨架。
             </p>
           </Note>
         </div>
@@ -444,7 +444,7 @@ export default function Concepts() {
               ：图片先被切成视觉 token，和文字 token 一起送进同一个 Transformer 理解。于是模型可以回答「这张截图里按钮在哪」「这张表的第三行销售额是多少」。代表选手：GPT-4o、Claude、Qwen-VL。
             </p>
             <p className="mt-2">
-              对 PM 的意义：<span className="font-semibold text-zinc-800">多模态文档分析</span>这条产品线的地基——合同里扫描的公章、研报里的图表、发票照片、界面截图，过去要 OCR 转文字（表格结构全丢），现在 VLM 直接读图理解。面试聊「知识库里全是 PDF 扫描件怎么办」，答案就是这条路。
+              对 PM 的意义：<span className="font-semibold text-zinc-800">多模态文档分析</span>这条产品线的地基——合同里扫描的公章、研报里的图表、发票照片、界面截图，过去要 OCR 转文字（表格结构全丢），现在 VLM 直接读图理解。被问「知识库里全是 PDF 扫描件怎么办」，答案就是这条路。
             </p>
           </TermCard>
           <TermCard term="SFT" en="Supervised Fine-Tuning / 监督微调" tag="用示例给模型补课">
@@ -453,7 +453,7 @@ export default function Concepts() {
               <span className="font-semibold text-zinc-800">行为习惯</span>：语气、格式、风格、对某类任务的套路。
             </p>
             <div className="mt-3 rounded-lg bg-zinc-50 p-3 text-[12px] leading-relaxed text-zinc-600">
-              <p className="font-semibold text-zinc-700">Prompt / RAG / SFT 怎么选（高频面试题）</p>
+              <p className="font-semibold text-zinc-700">Prompt / RAG / SFT 怎么选</p>
               <p className="mt-1">知识性的问题 → RAG（知识天天变，微调追不上）；行为格式的问题 → SFT（要 1000+ 条稳定风格时用）；先试 Prompt，Prompt 写不出的稳定行为再上微调。微调「记住」的内容会过时且难删除——这是它和 RAG 最本质的分工。</p>
             </div>
           </TermCard>
@@ -493,7 +493,7 @@ export default function Concepts() {
               <p>&nbsp;&nbsp;-d '{'{'}"model":"gpt-4o","messages":[{'{'}"role":"user","content":"你好"{'}'}]'{'}'}'</p>
             </div>
             <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
-              PM 的三个用法：验证 API 文档与真实行为是否一致；定位问题归属（curl 直连正常但产品里报错 → 锅在接入层不在模型）；面试实操题「给你个 API 搭个小工具」时这是第一道工序。
+              PM 的三个用法：验证 API 文档与真实行为是否一致；定位问题归属（curl 直连正常但产品里报错 → 锅在接入层不在模型）；实际动手「给你个 API 搭个小工具」时，这是第一道工序。
             </p>
           </TermCard>
         </div>
