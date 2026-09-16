@@ -2386,6 +2386,48 @@ function Practice() {
         /* @__PURE__ */ jsx9(Card, { title: "60 \u79D2\u8BB2\u6CD5", icon: FileChartColumnIncreasing, children: /* @__PURE__ */ jsx9("p", { children: "\u300C\u6211\u7ED9\u81EA\u5EFA\u7684\u77E5\u8BC6\u5E93\u95EE\u7B54\u5E94\u7528\u642D\u4E86\u4E00\u5957\u6BCF\u65E5\u81EA\u52A8\u8D28\u68C0\uFF1A30 \u9053\u5E26\u8BC4\u5206\u8981\u70B9\u7684\u8BC4\u6D4B\u9898\u5B9A\u65F6\u6279\u91CF\u63D0\u95EE\uFF0CLLM \u88C1\u5224\u6309\u4E8B\u5B9E/\u8FB9\u754C\u5206\u578B\u6253\u5206\uFF0C\u751F\u6210\u65E5\u62A5\u5E76\u5728\u51C6\u786E\u7387\u8DCC\u7834\u9608\u503C\u65F6\u544A\u8B66\u3002\u8FC7\u7A0B\u4E2D\u6211\u91CF\u5316\u4E86\u5207\u7247\u5927\u5C0F\u5BF9\u53EC\u56DE\u7684\u5F71\u54CD\uFF0C\u4E5F\u8E29\u8FC7\u88C1\u5224\u4F4D\u7F6E\u504F\u7F6E\u7684\u5751\u5E76\u7528\u4EA4\u6362\u76F2\u6D4B\u4FEE\u6389\u3002\u5B83\u672C\u8D28\u662F\u4F01\u4E1A\u91CC\u8BC4\u6D4B\u51C6\u5165\u95E8\u7981\u7684\u6700\u5C0F\u5B9E\u73B0\u2014\u2014\u6211\u77E5\u9053\u5B8C\u6574\u7248\u8FD8\u8981\u8865\u5168\u91CF\u56DE\u5F52\u3001\u591A\u4EBA\u6807\u6CE8\u6821\u51C6\u548C\u53D8\u66F4\u62E6\u622A\u3002\u300D" }) })
       ] }),
       /* @__PURE__ */ jsx9("div", { className: "mt-4", children: /* @__PURE__ */ jsx9(Note, { children: /* @__PURE__ */ jsx9("p", { children: "\u6700\u540E\u4E00\u53E5\u8BDD\u662F\u70B9\u775B\uFF1A\u4E3B\u52A8\u8BF4\u51FA MVP \u7684\u8FB9\u754C\u548C\u5B8C\u6574\u7248\u7684\u5DEE\u8DDD\uFF0C\u8BC1\u660E\u4F60\u65E2\u52A8\u5F97\u4E86\u624B\u3001\u53C8\u770B\u5F97\u89C1\u5168\u8C8C\u2014\u2014\u8FD9\u6B63\u662F\u300C\u4EA7\u54C1 Sense\u300D\u548C\u300C\u7EAF\u8C03\u53C2\u300D\u7684\u533A\u522B\u3002" }) }) })
+    ] }),
+    /* @__PURE__ */ jsxs9(Section, { kicker: "06 \xB7 \u62C6\u89E3", title: "\u770B\u61C2 AI \u751F\u6210\u7684\u9879\u76EE\uFF1A\u672C\u7AD9\u6587\u4EF6\u89E3\u5256", children: [
+      /* @__PURE__ */ jsxs9("p", { className: "max-w-3xl text-[15px] leading-relaxed text-zinc-600", children: [
+        "AI Coding \u4E00\u952E\u751F\u6210\u51E0\u5341\u4E0A\u767E\u4E2A\u6587\u4EF6\uFF0C\u770B\u8D77\u6765\u552C\u4EBA\uFF0C\u5176\u5B9E\u53EA\u5206\u4E94\u7C7B\uFF1A",
+        /* @__PURE__ */ jsx9("span", { className: "font-semibold text-zinc-800", children: "\u4F60\u5199\u5185\u5BB9\u7684\u3001\u7BA1\u914D\u7F6E\u7684\u3001\u6784\u5EFA\u4EA7\u7269\u3001\u81EA\u52A8\u5316\u811A\u672C\u3001\u9879\u76EE\u5143\u4FE1\u606F" }),
+        "\u3002\u4EE5\u672C\u7AD9\uFF08React + Vite\uFF0C\u7EAF\u524D\u7AEF\uFF09\u4E3A\u4F8B\uFF0C\u770B\u61C2\u8FD9\u4E00\u4E2A\u9879\u76EE\uFF0C\u4EFB\u4F55 AI \u751F\u6210\u7684\u9879\u76EE\u4F60\u90FD\u80FD\u4E0A\u624B\u3002"
+      ] }),
+      /* @__PURE__ */ jsxs9("div", { className: "mt-5", children: [
+        /* @__PURE__ */ jsx9("p", { className: "mb-3 text-sm font-semibold text-zinc-800", children: "\u5148\u8BB0\u4F4F\u8FD9\u6761\u4E3B\u6D41\u6C34\u7EBF\uFF08\u5176\u4ED6\u6587\u4EF6\u90FD\u662F\u6D41\u6C34\u7EBF\u4E0A\u7684\u5DE5\u5177\uFF09" }),
+        /* @__PURE__ */ jsxs9("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-700", children: "\u6539 src/pages/*.jsx" }),
+          /* @__PURE__ */ jsx9("span", { className: "text-zinc-400", children: "\u2192" }),
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700", children: "npm run build" }),
+          /* @__PURE__ */ jsx9("span", { className: "text-zinc-400", children: "\u2192" }),
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700", children: "\u751F\u6210 dist/" }),
+          /* @__PURE__ */ jsx9("span", { className: "text-zinc-400", children: "\u2192" }),
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700", children: "git push" }),
+          /* @__PURE__ */ jsx9("span", { className: "text-zinc-400", children: "\u2192" }),
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700", children: "Actions \u81EA\u52A8\u90E8\u7F72" }),
+          /* @__PURE__ */ jsx9("span", { className: "text-zinc-400", children: "\u2192" }),
+          /* @__PURE__ */ jsx9("span", { className: "rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700", children: "\u8BBF\u5BA2\u770B\u5230\u65B0\u9875\u9762" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx9("div", { className: "mt-6", children: /* @__PURE__ */ jsx9(
+        Table,
+        {
+          head: ["\u6587\u4EF6 / \u76EE\u5F55", "\u8BED\u8A00", "\u8D1F\u8D23\u4EC0\u4E48"],
+          rows: [
+            ["src/pages/*.jsx\uFF088 \u4E2A\u9875\u9762\uFF09", "JSX\uFF08JavaScript + React\uFF09", "\u5168\u90E8\u9875\u9762\u6587\u5B57\u4E0E\u7ED3\u6784\u2014\u2014\u4F60 99% \u7684\u4FEE\u6539\u5728\u8FD9\u91CC\uFF0C\u6539\u6587\u6848\u5C31\u662F\u6539\u6587\u4EF6\u91CC\u7684\u4E2D\u6587\u5B57\u7B26\u4E32"],
+            ["src/components/site.jsx", "JSX", "\u516C\u5171\u7EC4\u4EF6\u5E93\uFF1A\u5BFC\u822A\u680F\u3001\u5361\u7247\u3001\u8868\u683C\u3001\u672F\u8BED\u5361\u3002\u6240\u6709\u9875\u9762\u4ECE\u8FD9\u91CC\u300C\u62FC\u79EF\u6728\u300D\uFF0C\u60F3\u6539\u6574\u4F53\u98CE\u683C\u5C31\u6539\u5B83"],
+            ["src/nav-items.jsx / App.jsx / main.jsx", "JSX", "\u8DEF\u7531\u767B\u8BB0\u8868\u4E0E\u5E94\u7528\u9AA8\u67B6\uFF1A\u544A\u8BC9\u7F51\u7AD9\u6709\u54EA\u4E9B\u9875\u9762\u3001\u7F51\u5740\u662F\u4EC0\u4E48\u3002\u52A0\u65B0\u9875\u9762\u624D\u9700\u8981\u52A8"],
+            ["src/index.css", "CSS + Tailwind", "\u5168\u5C40\u6837\u5F0F\u4E0E\u4E3B\u9898\u8272"],
+            ["package.json \u7B49\u914D\u7F6E\u6587\u4EF6", "JSON / JavaScript", "\u5DE5\u5177\u94FE\u6863\u6848\uFF1A\u4F9D\u8D56\u4E86\u54EA\u4E9B\u5E93\u3001npm run \u547D\u4EE4\u7684\u5B9A\u4E49\u3001\u6784\u5EFA\u4E0E\u6837\u5F0F\u6846\u67B6\u7684\u914D\u7F6E\u3002\u4E00\u822C\u4E0D\u6539"],
+            ["dist/ \u4E0E dist-single/", "\u6784\u5EFA\u4EA7\u7269\uFF08\u673A\u5668\u751F\u6210\uFF09", "dist \u662F\u90E8\u7F72\u4E0A\u7EBF\u7684\u7248\u672C\uFF1Bdist-single \u662F\u5355\u6587\u4EF6\u79BB\u7EBF\u7248\uFF0C\u53CC\u51FB\u5373\u5F00\u3002\u6C38\u8FDC\u4E0D\u8981\u624B\u52A8\u6539\u4EA7\u7269"],
+            [".github/workflows/deploy.yml", "YAML", "GitHub Actions \u6D41\u6C34\u7EBF\uFF1Apush \u540E\u81EA\u52A8\u628A dist \u90E8\u7F72\u4E0A\u7EBF\u2014\u2014\u300Cpush \u540E 30 \u79D2\u7F51\u7AD9\u66F4\u65B0\u300D\u5C31\u662F\u5B83\u5E72\u7684"],
+            ["scripts/export-md.mjs", "JavaScript\uFF08Node\uFF09", "\u628A 8 \u4E2A\u9875\u9762\u5BFC\u51FA\u4E3A Markdown \u8BED\u6599\uFF0C\u517C\u4EFB\u5168\u9875\u6E32\u67D3\u81EA\u68C0\uFF088 \u4E2A OK \u624D\u7B97\u8FC7\uFF09"],
+            ["README.md / LICENSE / .gitignore", "Markdown / \u7EAF\u6587\u672C", "\u4ED3\u5E93\u95E8\u9762\u3001\u7248\u6743\u534F\u8BAE\u3001Git \u4E0D\u8FFD\u8E2A\u54EA\u4E9B\u6587\u4EF6\u7684\u89C4\u5219"],
+            ["node_modules/ \u4E0E .git/", "\u2014", "\u7B2C\u4E09\u65B9\u5E93\u5B9E\u4F53\u4E0E\u7248\u672C\u5386\u53F2\u6570\u636E\u5E93\u3002\u524D\u8005 npm install \u53EF\u518D\u751F\uFF0C\u540E\u8005\u662F\u300C\u65F6\u5149\u673A\u300D\uFF0C\u90FD\u522B\u52A8"]
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsx9("div", { className: "mt-4", children: /* @__PURE__ */ jsx9(Note, { children: /* @__PURE__ */ jsx9("p", { children: "\u6700\u91CD\u8981\u7684\u8BA4\u77E5\uFF1A\u300Csrc \u6E90\u7801 \u2192 \u6784\u5EFA \u2192 dist \u4EA7\u7269\u300D\u662F\u6240\u6709\u524D\u7AEF\u9879\u76EE\u7684\u901A\u7528\u8303\u5F0F\uFF0C\u548C\u7528\u4EC0\u4E48 AI \u5DE5\u5177\u751F\u6210\u65E0\u5173\u3002\u4E0B\u6B21 AI \u7ED9\u4F60\u751F\u6210\u4E00\u4E2A\u964C\u751F\u9879\u76EE\uFF0C\u5148\u627E package.json \u770B\u80FD\u8DD1\u4EC0\u4E48\u547D\u4EE4\u3001\u518D\u627E src/ \u770B\u5185\u5BB9\u5728\u54EA\u2014\u2014\u4E24\u5206\u949F\u5C31\u80FD\u5EFA\u7ACB\u5730\u56FE\u3002" }) }) })
     ] })
   ] });
 }

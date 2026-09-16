@@ -151,6 +151,53 @@ export default function Practice() {
           </Note>
         </div>
       </Section>
+
+      {/* 项目解剖 */}
+      <Section kicker="06 · 拆解" title="看懂 AI 生成的项目：本站文件解剖">
+        <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
+          AI Coding 一键生成几十上百个文件，看起来唬人，其实只分五类：<span className="font-semibold text-zinc-800">你写内容的、管配置的、构建产物、自动化脚本、项目元信息</span>。以本站（React + Vite，纯前端）为例，看懂这一个项目，任何 AI 生成的项目你都能上手。
+        </p>
+        <div className="mt-5">
+          <p className="mb-3 text-sm font-semibold text-zinc-800">先记住这条主流水线（其他文件都是流水线上的工具）</p>
+          <div className="flex flex-wrap items-center gap-2 text-[13px]">
+            <span className="rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-700">改 src/pages/*.jsx</span>
+            <span className="text-zinc-400">→</span>
+            <span className="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">npm run build</span>
+            <span className="text-zinc-400">→</span>
+            <span className="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">生成 dist/</span>
+            <span className="text-zinc-400">→</span>
+            <span className="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">git push</span>
+            <span className="text-zinc-400">→</span>
+            <span className="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">Actions 自动部署</span>
+            <span className="text-zinc-400">→</span>
+            <span className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700">访客看到新页面</span>
+          </div>
+        </div>
+        <div className="mt-6">
+          <Table
+            head={["文件 / 目录", "语言", "负责什么"]}
+            rows={[
+              ["src/pages/*.jsx（8 个页面）", "JSX（JavaScript + React）", "全部页面文字与结构——你 99% 的修改在这里，改文案就是改文件里的中文字符串"],
+              ["src/components/site.jsx", "JSX", "公共组件库：导航栏、卡片、表格、术语卡。所有页面从这里「拼积木」，想改整体风格就改它"],
+              ["src/nav-items.jsx / App.jsx / main.jsx", "JSX", "路由登记表与应用骨架：告诉网站有哪些页面、网址是什么。加新页面才需要动"],
+              ["src/index.css", "CSS + Tailwind", "全局样式与主题色"],
+              ["package.json 等配置文件", "JSON / JavaScript", "工具链档案：依赖了哪些库、npm run 命令的定义、构建与样式框架的配置。一般不改"],
+              ["dist/ 与 dist-single/", "构建产物（机器生成）", "dist 是部署上线的版本；dist-single 是单文件离线版，双击即开。永远不要手动改产物"],
+              [".github/workflows/deploy.yml", "YAML", "GitHub Actions 流水线：push 后自动把 dist 部署上线——「push 后 30 秒网站更新」就是它干的"],
+              ["scripts/export-md.mjs", "JavaScript（Node）", "把 8 个页面导出为 Markdown 语料，兼任全页渲染自检（8 个 OK 才算过）"],
+              ["README.md / LICENSE / .gitignore", "Markdown / 纯文本", "仓库门面、版权协议、Git 不追踪哪些文件的规则"],
+              ["node_modules/ 与 .git/", "—", "第三方库实体与版本历史数据库。前者 npm install 可再生，后者是「时光机」，都别动"],
+            ]}
+          />
+        </div>
+        <div className="mt-4">
+          <Note>
+            <p>
+              最重要的认知：「src 源码 → 构建 → dist 产物」是所有前端项目的通用范式，和用什么 AI 工具生成无关。下次 AI 给你生成一个陌生项目，先找 package.json 看能跑什么命令、再找 src/ 看内容在哪——两分钟就能建立地图。
+            </p>
+          </Note>
+        </div>
+      </Section>
     </Layout>
   );
 }
