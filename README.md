@@ -77,6 +77,37 @@ npm run build:single # 构建单文件离线版到 dist-single/（双击即可�
 
 仓库已内置 GitHub Actions 工作流，push 到 `main` 后自动部署到 GitHub Pages。
 
+## 💻 在另一台电脑上继续开发
+
+本站没有后端，**Git 仓库就是全部**。换电脑只需四步：
+
+```bash
+# 1. 装好 Node.js（>= 18）和 Git，然后克隆
+git clone https://github.com/sjx-design/aipm-starter-map.git
+cd aipm-starter-map
+
+# 2. 安装依赖，启动开发预览
+npm install
+npm run dev
+
+# 3. 改完内容后，本地构建 + 导出语料（导出同时是全页渲染自检，8 个 OK 才算过）
+npm run build
+node scripts/export-md.mjs
+
+# 4. 提交推送（首次 push 需要 Personal Access Token，见下）
+git add -A && git commit -m "你的修改说明" && git push origin main
+```
+
+push 后 GitHub Actions 会在约 30 秒内自动把 `dist/` 部署上线，无需手动操作。
+
+**首次 push 的认证**：GitHub 已不支持密码 push，需要在 [github.com/settings/tokens/new](https://github.com/settings/tokens/new) 生成一个 classic token（勾选 `repo` 和 `workflow` 两个权限），push 时用户名填 GitHub 用户名、密码栏粘贴 token 即可，系统钥匙串会记住它。
+
+**配套语料仓库**：`scripts/export-md.mjs` 会把 8 个页面导出为 Markdown 到 `../rag-eval-lab/corpus/`（即与本仓库并列的 [rag-eval-lab](https://github.com/sjx-design/rag-eval-lab) 目录）。如果也需要同步语料，把该仓库一并 clone 到同级目录：
+
+```bash
+git clone https://github.com/sjx-design/rag-eval-lab.git ../rag-eval-lab
+```
+
 ## 🤝 参与贡献
 
 - 🐛 发现内容错误或过时的行业信息 → 提 Issue
