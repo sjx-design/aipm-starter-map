@@ -19,7 +19,7 @@ const CATEGORIES = [
         url: "https://github.com/microsoft/generative-ai-for-beginners",
         stars: "11.9w",
         desc: "微软官方生成式 AI 入门课程，21 课覆盖从原理到 RAG、Agent 的完整主线，有中文版。",
-        why: "体系最完整的免费课程，适合当 12 周计划里第 1~2 周的主线教材。",
+        why: "体系最完整的免费课程，适合当学习路径 Stage 1 的主线教材。",
       },
       {
         name: "datawhalechina/llm-cookbook",
@@ -114,7 +114,7 @@ const CATEGORIES = [
   },
   {
     title: "Agent 与动手搭建：做出作品集",
-    note: "对应 12 周计划的第 6~10 周：从低代码平台入手，框架源码不必硬啃。",
+    note: "对应学习路径的 Stage 3~4：从低代码平台入手，框架源码不必硬啃。",
     repos: [
       {
         name: "datawhalechina/hugging-multi-agent",
@@ -169,7 +169,7 @@ const CATEGORIES = [
         url: "https://github.com/langgenius/dify",
         stars: "头部框架",
         desc: "最流行的开源 LLM 应用开发平台：可视化编排工作流、RAG、Agent。",
-        why: "12 周计划里搭 Agent 的首选工具之一，低代码上手。",
+        why: "Stage 3 搭 Agent 的首选工具之一，低代码上手。",
       },
       {
         name: "langchain-ai/langchain",
@@ -249,15 +249,15 @@ export default function Resources() {
         </Section>
       ))}
 
-      <Section kicker="对照" title="和 12 周计划怎么配合">
+      <Section kicker="对照" title="和学习路径怎么配合">
         <Table
           head={["学习阶段", "推荐配合的资源"]}
           rows={[
-            ["第 1~2 周 · 建立坐标系", "本站概念篇/行业篇 + generative-ai-for-beginners 前几课 + LLMSurvey 目录"],
-            ["第 3~5 周 · 核心技能上手", "llm-cookbook 的 Prompt/RAG 子课 + self-llm（想动手微调时）"],
-            ["第 6~8 周 · Agent 与自动化", "hugging-multi-agent + Dify 官方文档 + ai-agent-team 案例拆解"],
-            ["第 9~10 周 · AI Coding 深度实践", "Awesome-Vibecoding 资源 + openai-cookbook 查工程细节"],
-            ["第 11~12 周 · 求职冲刺", "awesome-ai-product-manager / Awesome-PM-Prompts 补面试弹药"],
+            ["Stage 1 · 建立坐标系", "本站概念篇/行业篇 + generative-ai-for-beginners 前几课 + LLMSurvey 目录"],
+            ["Stage 2 · 核心技能上手", "llm-cookbook 的 Prompt/RAG 子课 + self-llm（想动手微调时）"],
+            ["Stage 3 · Agent 与自动化", "hugging-multi-agent + Dify 官方文档 + ai-agent-team 案例拆解"],
+            ["Stage 4 · AI Coding 深度实践", "Awesome-Vibecoding 资源 + openai-cookbook 查工程细节"],
+            ["Stage 5 · 求职冲刺", "awesome-ai-product-manager / Awesome-PM-Prompts 补面试弹药"],
           ]}
         />
         <div className="mt-4">

@@ -4,7 +4,7 @@
 
 ### 零基础进阶 AI 产品经理的第一站
 
-**概念扫盲 · 方法实操 · 行业坐标 · 求职冲刺 · 12 周学习路径**
+**概念扫盲 · 方法实操 · 行业坐标 · 求职冲刺 · 闯关式学习路径**
 
 *不需要先学会训练模型，先建立一套完整的认知地图。*
 
@@ -24,7 +24,7 @@
 - 🌱 **零基础入门？** 从 [概念篇](https://sjx-design.github.io/aipm-starter-map/#/concepts) 开始——每个概念配一个可以复述给别人听的比喻
 - 🚀 **准备秋招 / 面试？** 直接进 [求职篇](https://sjx-design.github.io/aipm-starter-map/#/career)——JD 解读、作品集打法、高频面试题答题骨架
 - 🛠️ **想动手做项目？** 看 [实操室](https://sjx-design.github.io/aipm-starter-map/#/practice)——从零做一个知识库每日自动质检机器人 MVP，直接成为作品集素材
-- 📅 **想要完整计划？** 跟 [12 周学习路径](https://sjx-design.github.io/aipm-starter-map/#/roadmap)——每周有主题、有产出、有自测标准
+- 📅 **想要完整计划？** 跟 [闯关式进阶路径](https://sjx-design.github.io/aipm-starter-map/#/roadmap)——五个 Stage 各有过关标准，节奏自己掌握，产出直接变作品集
 
 ![站点首页](assets/screenshot-home.png)
 
@@ -36,7 +36,7 @@
 | 🔬 [方法篇](https://sjx-design.github.io/aipm-starter-map/#/methods) | Prompt 工程、知识库搭建与评测、召回率、拒答边界、引用溯源 | 上手实际工作 |
 | 🌐 [行业篇](https://sjx-design.github.io/aipm-starter-map/#/industry) | 模型公司格局、七家企业实践水平、前沿攻坚难题 | 建立行业坐标 |
 | 💼 [求职篇](https://sjx-design.github.io/aipm-starter-map/#/career) | JD 解读、作品集策略、「你怎么评价各家 AI」等歧义题拆解 | 求职冲刺 |
-| 📅 [学习路径](https://sjx-design.github.io/aipm-starter-map/#/roadmap) | 12 周四阶段计划，含每周任务、交付物与自测标准 | 所有新人的第一站 |
+| 📅 [学习路径](https://sjx-design.github.io/aipm-starter-map/#/roadmap) | 五 Stage 闯关路径，含任务清单、交付物与自测标准 | 所有新人的第一站 |
 | 🧪 [实操室](https://sjx-design.github.io/aipm-starter-map/#/practice) | 完整的自动化场景 MVP：知识库每日质检机器人 | 积累项目经历 |
 | 📚 [资源导航](https://sjx-design.github.io/aipm-starter-map/#/resources) | 精选书、课、社区与工具 | 持续学习 |
 

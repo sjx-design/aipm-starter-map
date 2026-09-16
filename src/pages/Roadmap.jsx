@@ -11,7 +11,7 @@ import {
 
 const PHASES = [
   {
-    phase: "第 1~2 周",
+    phase: "Stage 1",
     title: "建立坐标系",
     goal: "听懂所有黑话，形成行业地图",
     tasks: [
@@ -23,7 +23,7 @@ const PHASES = [
     check: "能向非技术朋友讲清楚：大模型为什么会一本正经地胡说（幻觉），以及 RAG 是怎么缓解它的",
   },
   {
-    phase: "第 3~5 周",
+    phase: "Stage 2",
     title: "核心技能上手",
     goal: "Prompt、评测、RAG 三大件全部亲手跑通",
     tasks: [
@@ -35,7 +35,7 @@ const PHASES = [
     check: "拿到一个「答得不好」的 case，能说清问题出在检索还是生成，并给出下一步动作",
   },
   {
-    phase: "第 6~8 周",
+    phase: "Stage 3",
     title: "Agent 与自动化",
     goal: "理解任务编排，做出会「做事」的东西",
     tasks: [
@@ -47,7 +47,7 @@ const PHASES = [
     check: "面对一个新需求，能立刻判断「这个该用 Workflow 还是 Agent」并说出理由",
   },
   {
-    phase: "第 9~10 周",
+    phase: "Stage 4",
     title: "AI Coding 深度实践",
     goal: "成为真正「懂研发的产品」",
     tasks: [
@@ -59,11 +59,11 @@ const PHASES = [
     check: "能讲清一次 AI 翻车的完整过程：现象 → 定位 → 你的引导 → 结果，并提炼出产品启示",
   },
   {
-    phase: "第 11~12 周",
+    phase: "Stage 5",
     title: "求职冲刺",
     goal: "把积累变成 offer",
     tasks: [
-      "把 12 周的所有产出整理成作品集：一个主项目深挖 + 两个辅项目",
+      "把前面阶段的所有产出整理成作品集：一个主项目深挖 + 两个辅项目",
       "主项目写完整产品复盘文档（用户/指标/取舍/roadmap，参照求职篇模板）",
       "过一遍求职篇的高频面试题，每题写下自己的答题骨架并口头演练",
       "找 2~3 位从业者（学长学姐、社区）做模拟面试或简历 review",
@@ -78,11 +78,11 @@ export default function Roadmap() {
     <Layout>
       <PageHeader
         eyebrow="学习路径"
-        title="12 周入门计划"
-        desc="为零基础设计的学习主线：每周有主题、有产出。所有交付物直接成为作品集素材——学习即备弹。默认每周投入 10~15 小时，在职/在学可拉长到 16 周，但别压缩每一阶段的动手环节。"
+        title="进阶路径：不设日历，只设过关标准"
+        desc="五个 Stage，每个都有明确目标、任务清单、交付物和自测标准。这里没有「第几周该干什么」——自测标准能过，就直接进下一段；不能过，就停下来补。快的人一个月跑完，慢的人半年也不丢人，节奏完全由你掌握。所有交付物直接成为作品集素材——学习即备弹。"
       />
 
-      <Section kicker="总览" title="五个阶段">
+      <Section kicker="总览" title="五个 Stage，闯关制">
         <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white shadow-sm">
           <table className="w-full min-w-[640px] text-left text-[14px]">
             <thead>
@@ -113,7 +113,7 @@ export default function Roadmap() {
         <Section key={i} kicker={p.phase} title={p.title}>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="md:col-span-2 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <p className="text-sm font-semibold text-zinc-800">本周任务</p>
+              <p className="text-sm font-semibold text-zinc-800">任务清单</p>
               <ul className="mt-3 space-y-2.5 text-[14px] leading-relaxed text-zinc-600">
                 {p.tasks.map((t, j) => (
                   <li key={j} className="flex gap-2.5">
@@ -195,7 +195,7 @@ export default function Roadmap() {
         </div>
       </Section>
 
-      <Section kicker="原则" title="贯穿 12 周的三条军规">
+      <Section kicker="原则" title="贯穿全程的三条军规">
         <div className="grid gap-4 md:grid-cols-3">
           <Card title="一切以产出为准" icon={Flag}>
             <p>
@@ -216,7 +216,7 @@ export default function Roadmap() {
         <div className="mt-4">
           <Note>
             <p>
-              12 周结束后，你手里应该有：一个带评测数据的 RAG 项目、一个 Agent 工作流、一个 AI Coding 做出的小产品、若干产品拆解笔记，以及一份能应对高频面试题的答题骨架。这就是「拿去秋招乱杀」的完整弹药库——剩下的事，是投递和迭代。
+              五个 Stage 全部通关后，你手里应该有：一个带评测数据的 RAG 项目、一个 Agent 工作流、一个 AI Coding 做出的小产品、若干产品拆解笔记，以及一份能应对高频面试题的答题骨架。这就是「拿去秋招乱杀」的完整弹药库——剩下的事，是投递和迭代。
             </p>
           </Note>
         </div>

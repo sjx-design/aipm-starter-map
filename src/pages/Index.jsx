@@ -46,8 +46,8 @@ const MODULES = [
     to: "/roadmap",
     icon: Route,
     title: "学习路径",
-    desc: "为零基础定制的 12 周学习计划，每周一个主题和可交付产出，学完直接变成作品集素材。",
-    tag: "12 周计划",
+    desc: "不设日历的闯关式进阶路径：五个 Stage，每个有明确过关标准，节奏自己掌握，产出直接变成作品集素材。",
+    tag: "闯关式路径",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Index() {
               to="/roadmap"
               className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-semibold text-zinc-200 transition-colors hover:bg-zinc-900"
             >
-              直接看 12 周学习路径
+              直接看进阶路径
             </Link>
           </div>
           <div className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
