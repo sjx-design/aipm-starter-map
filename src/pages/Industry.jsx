@@ -228,6 +228,27 @@ export default function Industry() {
             </p>
           </Note>
         </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">水位尺：Agent 时代的五张考卷</h3>
+          <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
+            概念篇的「考卷」量的是模型，这几张考量的是<span className="font-semibold text-zinc-800">放进真实环境里的 Agent 系统</span>——它们才是判断行业水位的尺子：
+          </p>
+          <div className="mt-3">
+            <Table
+              head={["基准", "考什么", "当前水位"]}
+              rows={[
+                ["SWE-bench", "修真实开源项目的 bug（提交补丁并通过项目自带测试）", "编码 Agent 金标准，头部模型在 Verified 子集上持续刷新纪录"],
+                ["OSWorld", "真实电脑里跨软件完成多步操作", "两年半从 12% 爬到 90%+，已超过原论文 72% 的人类基线——进步最快的赛道"],
+                ["Terminal-Bench", "真实终端里配环境、排故障", "难度与成本双高：顶级模型跑一遍完整集约 6000 美元——评测本身也是成本账"],
+                ["τ-bench", "客服场景多轮对话 + 工具调用", "贡献了 user simulator（LLM 扮用户）与 pass^k（可靠性）两大评测范式"],
+                ["VitaBench", "外卖点餐、旅游出行等生活场景的交互式任务", "最强推理模型主榜成功率仅约 30%——离真实生活越近，Agent 越不及格"],
+              ]}
+            />
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            最后一个警示案例：<span className="font-semibold text-zinc-800">Terminator-1 事件</span>——研究者用一个 10 行代码的「作弊 Agent」（pytest 钩子强制所有测试通过）在 SWE-bench Verified 上刷到 95%+ 满分，实际解决的任务数是 0；GAIA 可被刷到约 98%、WebArena 可 100% 利用。分数通胀时代，看任何基准先问三个问题：环境是否隔离、轨迹是否审计、结果验证是否独立于被测 Agent——<span className="font-semibold text-zinc-800">评测本身也需要治理</span>。
+          </p>
+        </div>
       </Section>
 
       {/* 怎么追 */}

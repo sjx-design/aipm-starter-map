@@ -180,6 +180,47 @@ const CATEGORIES = [
       },
     ],
   },
+  {
+    title: "评测与可观测：给 Agent 当裁判的工具链",
+    note: "配合方法篇「评测」一节使用：离线评测用前三个，线上可观测用最后一个。星数为 2026 年 9 月实测。",
+    repos: [
+      {
+        name: "promptfoo/promptfoo",
+        url: "https://github.com/promptfoo/promptfoo",
+        stars: "25.2k",
+        desc: "评测 + 红队测试一体：YAML 定义用例，批量跑模型对比与安全测试。",
+        why: "离线评测入门首选，半小时跑通第一个评测集。",
+      },
+      {
+        name: "confident-ai/deepeval",
+        url: "https://github.com/confident-ai/deepeval",
+        stars: "18.3k",
+        desc: "「LLM 界的 pytest」：G-Eval、Agent 指标，评测可以写进 CI/CD。",
+        why: "想把评测工程化管起来时用，和 rag-eval-lab 的思路最像。",
+      },
+      {
+        name: "vibrantlabsai/ragas",
+        url: "https://github.com/vibrantlabsai/ragas",
+        stars: "15.8k",
+        desc: "RAG 链路专用指标（faithfulness、answer relevancy），已扩展到 agentic 评测。",
+        why: "做知识库项目时的指标参考标准。",
+      },
+      {
+        name: "UKGovernmentBEIS/inspect_ai",
+        url: "https://github.com/UKGovernmentBEIS/inspect_ai",
+        stars: "2.8k",
+        desc: "英国 AI 安全研究所出品的 Agent 轨迹评测框架。",
+        why: "看政府级安全机构怎么设计 Agent 评测，视野独特。",
+      },
+      {
+        name: "langfuse/langfuse",
+        url: "https://github.com/langfuse/langfuse",
+        stars: "34.7k",
+        desc: "开源 LLM 可观测平台：trace 追踪、成本账本、Prompt 管理。",
+        why: "「观测 + 评测 = 持续迭代」里的观测半边天。",
+      },
+    ],
+  },
 ];
 
 export default function Resources() {

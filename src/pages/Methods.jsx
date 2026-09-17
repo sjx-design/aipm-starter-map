@@ -105,6 +105,26 @@ export default function Methods() {
             </p>
           </Note>
         </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">从「打分」到「体系」：工业级评测的四个升级</h3>
+          <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
+            上面的四步是一个最小可用闭环；在真实业务里持续跑，还需要四个认知升级。记住一个公式：<span className="font-semibold text-zinc-800">观测 + 评测 = 持续迭代</span>——没有 trace 日志和成本账本（观测），你连「评的对象」都没有，所以观测永远排在评测前面。
+          </p>
+          <div className="mt-3">
+            <Table
+              head={["升级", "解决什么", "怎么理解"]}
+              rows={[
+                ["人人一致率", "标注员之间的判断是否统一", "不同标注员对同一批数据背靠背打分，差异大说明标准本身模糊——先改评分标准，再谈评测；标准不统一，数据越多越乱"],
+                ["人机一致率", "机器评分与专家判断的偏差", "裁判模型也要被评测：定期用专家标注校准 LLM Judge，偏差超阈值就要修评分 Prompt——否则你在用一把不准的尺量所有迭代"],
+                ["标注 vs 评测", "同一个「打标签」动作的两个目标", "训练型标注是「教模型」（产样本），评测型标注是「量好坏」（产指标）；目的不同，对一致率和覆盖面的要求完全不同"],
+                ["三种死法", "为什么大部分 Agent 项目走不远", "停在 Demo（真实流量覆盖不住）、卡在扩量（说不清问题在哪层、不敢改）、说不清业务价值（拿不出变好的证据）——共同点是缺一套可靠的判断机制，而评测就是这套机制"],
+              ]}
+            />
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            Agent 场景还要再加两层：评「结果」之外评「过程」（轨迹是否合理、工具调用是否稳定——两个 Agent 都做对了，工程价值可能天差地别）；评「单次」之外评「可靠」（用概念篇的 pass^k 而非单次成功率）。评测对象已经从「一个模型」变成「模型 + Prompt + 工具链 + 记忆 + 流程」的整个系统。
+          </p>
+        </div>
       </Section>
 
       {/* 知识库 */}

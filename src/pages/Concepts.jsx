@@ -317,6 +317,31 @@ export default function Concepts() {
             记住这张分层表：知识、接口、方法、决策，四层各管一段，拼起来才是企业里能用的 AI。
           </p>
         </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">Agent 是怎么跑起来的：一个循环 + 三种范式</h3>
+          <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
+            业界广泛引用的定义是 Lilian Weng 的公式：<span className="font-semibold text-zinc-800">Agent = 大模型（大脑） + 规划（Planning） + 记忆（Memory） + 工具（Tools）</span>。它跑起来的样子是一个循环——模型思考并决定下一步 → 调用工具行动 → 观察工具返回的结果 → 基于结果继续思考，直到任务完成。Agent 的智能不只在模型本身，也在这个「反馈循环」里。
+          </p>
+          <div className="mt-3 rounded-lg bg-zinc-50 p-3 font-mono text-[12px] leading-relaxed text-zinc-600">
+            while 任务未完成：<br />
+            &nbsp;&nbsp;response = 模型(对话历史, 可用工具)&nbsp;&nbsp;// 思考：直接回答 or 调用工具<br />
+            &nbsp;&nbsp;if 要调工具: 执行工具，把结果追加进对话历史&nbsp;&nbsp;// 行动 + 观察<br />
+            &nbsp;&nbsp;else: 输出最终答案，结束
+          </div>
+          <div className="mt-4">
+            <Table
+              head={["范式", "怎么工作", "适合什么"]}
+              rows={[
+                ["ReAct（边想边做）", "思考一步、行动一步、观察一步，交替推进", "需要外部信息的任务：搜索、查询、网页操作"],
+                ["Plan-and-Solve（先谋后动）", "先把任务拆成完整计划，再按计划逐步执行", "步骤多的长任务：写报告、多系统操作"],
+                ["Reflection（自我反思）", "做完后自我检查、发现问题、推翻重来", "写作、代码这类「能验证好坏」的产出"],
+              ]}
+            />
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            一个实证案例说明「规划」怎么做才有效：OpenAI 用 Prompt 要求模型「每次调用工具前必须充分规划」，SWE-bench 通过率提升 4%；Anthropic 的做法更工程化——把「思考」本身做成一个 think 工具，模型调工具前后各调一次「思考工具」，τ-bench 航空客服场景的 pass^1 从 0.370 提升到 0.570（+54%）。启示是：<span className="font-semibold text-zinc-800">「调用思考工具」是明确可执行、可评判的指令，「请做规划」是模糊指令</span>——把认知动作工具化，模型的遵循率会高得多。最后一条军规：能用 Workflow 画死的流程，别交给 Agent 即兴——LLM 会引入额外的不确定性，确定性部分永远优先用工程解决。
+          </p>
+        </div>
       </Section>
 
       {/* Prompt 注入 */}
@@ -365,6 +390,51 @@ export default function Concepts() {
         </div>
       </Section>
 
+      {/* 上下文工程 */}
+      <Section kicker="04.5 · 上下文" title="上下文工程：Prompt 工程的下一站">
+        <p className="max-w-3xl text-[15px] leading-relaxed text-zinc-600">
+          Agent 时代行业的共识迁移：从「写好一句指令」（Prompt Engineering）转向「设计一个动态系统，在每一步为模型组装信息密度最高的上下文」（Context Engineering）。Karpathy 的比喻一针见血：<span className="font-semibold text-zinc-800">LLM 是新型操作系统，模型是 CPU，上下文窗口就是 RAM</span>——上下文工程干的就是内存管理的活。一个真实运行中的 Agent，窗口里同时塞着系统指令、工具定义、记忆片段、当前计划、历史对话、上一步工具返回的几万字网页——它们互相挤占同一份预算。
+        </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <TermCard term="Lost in the Middle" en="中间遗忘" tag="U 型曲线">
+            <p>
+              反直觉现象：把关键信息放在超长上下文的<span className="font-semibold text-zinc-800">中间位置</span>，模型的召回准确率会显著下降，呈 U 型曲线——开头和结尾记得牢，中间「视而不见」。
+            </p>
+            <p className="mt-2">
+              启示：<span className="font-semibold text-zinc-800">128K 窗口 ≠ 128K 有效注意力</span>。把文档全塞进去不等于模型真读到了；最重要的信息放开头或结尾，中间留给可压缩的辅助材料。
+            </p>
+          </TermCard>
+          <TermCard term="Context Rot" en="上下文腐化" tag="多轮累积退化">
+            <p>
+              多轮 Agent 场景的慢性病：随着轮次增加，上下文里堆满过期的中间结论、失败的工具调用、被推翻的假设。模型被「历史噪音」反复干扰——重复执行已做过的步骤、坚持早已证伪的前提、越跑越偏离最初目标。
+            </p>
+            <p className="mt-2">
+              启示：窗口变大不是解药，<span className="font-semibold text-zinc-800">主动裁剪与重组</span>才是——定期清理已失效的历史，比换更长上下文的模型管用。
+            </p>
+          </TermCard>
+        </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">落地抓手：上下文预算 + 四大策略</h3>
+          <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
+            把窗口当一份需要分配的预算来管理（以 128K 为例）：为输出预留 16K，系统指令 2K，工具定义 6K（工具一多就是几千 token，考虑动态加载），记忆召回 8K，当前计划状态 2K，历史对话 40K，工具返回 54K——<span className="font-semibold text-zinc-800">工具返回是最容易爆的一项</span>，原始网页和日志动辄几万字，要先压缩再入窗。管理策略归纳起来四个动词：
+          </p>
+          <div className="mt-3">
+            <Table
+              head={["策略", "干什么", "关键经验"]}
+              rows={[
+                ["Write（写入）", "决定什么信息值得进入上下文", "Manus 团队的反直觉经验：失败尝试要保留并附原因分析——删掉错误记录，Agent 反而会重复犯同一个错"],
+                ["Select（选择）", "从可用信息里筛出最相关的注入", "质量 > 数量：聚焦的小上下文优于塞满「可能有用」的大上下文"],
+                ["Compress（压缩）", "摘要、裁剪长内容", "工具返回先提炼再入窗；对话历史分层压缩（呼应上一节的记忆分层）"],
+                ["Isolate（隔离）", "用子 Agent 分担上下文", "主 Agent 只收子任务的结论，不背子任务的过程——这也是多 Agent 架构的核心动机"],
+              ]}
+            />
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            产品启示：「给 Agent 接了十几个工具，效果反而比接三个时差」——这通常不是模型问题，而是上下文问题（工具定义挤爆预算、模型注意力被稀释）。这一节是串起本页多个概念的总纲：它解释了记忆为什么要分层（04 节）、token 账单为什么会失控（09 节）、以及为什么「模型可替换、Harness 难迁移」——<span className="font-semibold text-zinc-800">上下文工程正是 Harness 工程的核心</span>。
+          </p>
+        </div>
+      </Section>
+
       {/* Benchmark / 评测 / 意图识别 */}
       <Section kicker="05 · 度量" title="Benchmark、评测与意图识别：好坏谁来裁判">
         <div className="grid gap-4 md:grid-cols-2">
@@ -398,6 +468,26 @@ export default function Concepts() {
           />
           <p className="mt-3 text-[14px] leading-relaxed text-zinc-600">
             一张考卷只能考一种能力，模型在不同考卷上的分数可以差得很远——这就是「看分项不看总分」的原因。为什么评测和意图识别放在同一节？因为这一节的主题是「度量」：意图识别是一个需要被度量的能力（识别准不准要靠评测回答），评测是给所有 AI 能力当裁判的方法论——两者是同一枚硬币的两面。
+          </p>
+        </div>
+        <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold leading-snug">Agent 时代的评测：两个必须知道的新概念</h3>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold text-zinc-800">pass^k：量「可靠」，不是量「上限」</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+                Agent 的输出是不确定的，同样输入跑多次结果不同。pass@k 是「跑 k 次至少成功一次」——量能力的上限；pass^k 是「连跑 k 次全都成功」——量<span className="font-semibold text-zinc-800">可靠性</span>。产品要的是后者：单步 90% 可靠，10 步链路端到端只剩约 35%。这就是「Demo 很惊艳、上线不敢用」的数学本质。
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-zinc-800">User Simulator：让 LLM 扮演用户来考试</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-zinc-600">
+                评测多轮 Agent 不能回放固定对话——真实用户会改主意、会表达不清。τ-bench 的范式：让一个 LLM 扮演有真实诉求的用户，与 Agent 多轮交锋，最后<span className="font-semibold text-zinc-800">校验「世界状态」而非对话文本</span>——不评「客服话说得好不好」，直接查「数据库里那张票到底退了没有」。
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-zinc-600">
+            这两个概念合起来回答了一个问题：为什么 Agent 评测从「答案评测」走向了「行为评测」——评的对象不再是单轮输出，而是一整条在动态环境里多步执行的轨迹。
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -693,6 +783,9 @@ export default function Concepts() {
             ["Prompt 调优和微调怎么选？", "先 Prompt（改输入、零成本）；行为模式需稳定固化才微调（改权重）；知识更新归 RAG"],
             ["温度参数控制的是什么？", "控制采样随机度而非聪明程度：低温拉尖分布（稳定可复现），高温拉平分布（敢选冷门词）；答得对的功能用低温，想点子的功能用高温"],
             ["RAG 链路的输入和输出是什么？", "入库侧输入企业文档/Wiki/PDF/工单等一切文字资料；在线侧输入用户问题，输出「答案 + 引用来源」——知识在资料柜里流动，模型本身什么都没学"],
+            ["上下文工程在解决什么？", "在有限窗口内为每一步组装信息密度最高的上下文；两个敌人是 Lost in the Middle（中间遗忘）和 Context Rot（腐化堆积）；抓手是预算分配 + Write/Select/Compress/Isolate"],
+            ["pass^k 和 pass@k 的区别？", "pass@k 量上限（k 次至少成一次），pass^k 量可靠（k 次全成）；Agent 产品要的是后者——单步 90% 可靠，10 步只剩 35%"],
+            ["ReAct、Plan-and-Solve、Reflection 怎么区分？", "边想边做（搜索查询类）/ 先拆解成计划再执行（长任务）/ 做完自我检查返工（可验证产出）；实证：把「思考」做成工具比 Prompt 说「请规划」遵循率高得多"],
           ]}
         />
         <p className="mt-4 text-[14px] text-zinc-600">
